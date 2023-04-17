@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap");
+
+$Blue: hsl(223, 87%, 63%);
+
+$Pale-Blue: hsl(223, 100%, 88%);
+$Light-Red: hsl(354, 100%, 66%);
+
+$Gray: hsl(0, 0%, 59%);
+$Very-Dark-Blue: hsl(209, 33%, 12%);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+::placeholder {
+  color: lighten($color: $Pale-Blue, $amount: 4%);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: lighten($color: $Pale-Blue, $amount: 4%);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: lighten($color: $Pale-Blue, $amount: 4%);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Libre Franklin", sans-serif;
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: hidden;
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1.5rem;
+
+    .logo {
+      margin-block: 5rem;
+    }
+
+    .gray {
+      font-size: 2.2rem;
+      color: $Gray;
+      font-weight: 300;
+
+      .dark-blue {
+        font-weight: 700;
+        color: $Very-Dark-Blue;
+      }
+    }
+
+    .subscribe {
+      margin-block: 3rem 4rem;
+      font-size: 1.6rem;
+      color: $Very-Dark-Blue;
+    }
+
+    .getEmail {
+      position: relative;
+      .email {
+        outline: none;
+        padding: 1.8rem 3rem;
+        font-size: 1.6rem;
+        border: 1px solid $Pale-Blue;
+        border-radius: 50px;
+        width: 100%;
+      }
+      
+      .errorMsg{
+        position: absolute;
+        bottom: 48%;
+        left: 20%;
+        color: $Light-Red;
+      }
+
+      .hidden{
+        display: none;
+      }
+      .notify-btn {
+        border: none;
+        outline: none;
+        border-radius: 50px;
+        background-color: $Blue;
+        color: #fff;
+        padding: 1.8rem 3rem;
+        font-size: 1.6rem;
+        width: 100%;
+        text-align: center;
+        margin-block: 2.5rem 1rem;
+        cursor: pointer;
+
+        &:hover{
+          background-color: lighten($color: $Blue, $amount: 10%);
+          transition: 0.2s ease-in-out;
+        }
+      }
+    }
+    .dashboard-img {
+      width: 100%;
+      margin-block: 5rem 10rem;
+    }
+    .icons {
+      display: flex;
+      i {
+        width: 30px;
+        height: 30px;
+        margin: 0.7rem;
+        padding: 5px;
+        border: 1px solid $Pale-Blue;
+        color: $Blue;
+        border-radius: 50%;
+        font-size: 1.6rem;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+
+        &:hover{
+          background-color: $Blue;
+          color: #fff;
+          transition: 0.2s ease-in-out;
+        }
+      }
+    }
+    .copyright {
+      font-size: 1.2rem;
+      color: $Gray;
+      margin-block: 3rem;
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  body {
+    .main {
+      .gray{
+        font-size: 2.8rem;
+      }
+      .subscribe{
+        font-size: 1.8rem;
+      }
+      .getEmail {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        .email {
+          padding: 0.5rem 1.5rem;
+          font-size: 1.4rem;
+          width: 20%;
+        }
+        .notify-btn {
+          padding: 1.2rem 1rem;
+          font-size: 1.4rem;
+          width: 10%;
+          margin-left: 1rem;
+          margin-block: 0;
+        }
+        .errorMsg{
+          position: absolute;
+          bottom: -60%;
+          left: 36%;
+          color: $Light-Red;
+        }
+      }
+    }
+  }
+}
